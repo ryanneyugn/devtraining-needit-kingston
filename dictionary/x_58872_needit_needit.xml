@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" sizeclass="11" type="collection">
+    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
         <element attributes="edge_encryption_enabled=true" label="Email" max_length="40" name="email" type="string"/>
         <element label="New field 1" max_length="40" name="new_field_1" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Practice" max_length="40" name="practice" type="string"/>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>validate</action_name>
+        <active>true</active>
+        <client>true</client>
+        <comments/>
+        <condition/>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_style/>
+        <hint/>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Validate</name>
+        <onclick>validatePractice()</onclick>
+        <order>100</order>
+        <script><![CDATA[// Client-side Code
+function validatePractice(){
+	var practice_value = g_form.getValue('practice');
+	
+	if(practice_value == '' || isNaN(practice_value) || parseInt(practice_value) < 1){
+		g_form.hideFieldMsg('practice', true);
+		g_form.showFieldMsg('practice', 'Practice must not be empty and shoudl be numeric');
+		return false;
+	}
+	
+	gsftSubmit(null, g_form.getFormElement(), 'validate');
+}
+
+//Code that runs without 'onclick'
+//Ensure call to server-side function with no browser //errors
+if(typeof window == 'undefined')
+	runBR();
+
+//Server-side function
+function runBR(){	
+	current.update();
+	gs.addInfoMessage('Validate and Update success!');
+	action.setRedirectURL(current);
+}]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-07-04 08:35:14</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d6e7119edb8313005b1f9b81ca961914</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Validate</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ui_action_d6e7119edb8313005b1f9b81ca961914</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-05 08:21:30</sys_updated_on>
+        <table>x_58872_needit_needit</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>
